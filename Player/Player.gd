@@ -21,6 +21,8 @@ onready var animTree = $AnimationTree
 onready var animState = $AnimationTree.get("parameters/playback")
 onready var swordHitbox = $HitboxPivot/SwordHitbox
 
+onready var stats = $Stats
+
 func _read():
 	animTree.active = true
 
@@ -117,3 +119,9 @@ func _set_blend_position(vec):
 # func _process(delta):
 	
 	# pass
+
+
+func _on_Hurtbox_hit(damage):
+	stats.health -= damage
+	# should probably add some sort of invisibility frames
+	stats.
