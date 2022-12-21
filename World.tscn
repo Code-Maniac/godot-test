@@ -675,9 +675,6 @@ __meta__ = {
 [node name="Bat" parent="Entities" instance=ExtResource( 9 )]
 position = Vector2( 233, 168 )
 
-[node name="Stats" parent="Entities/Bat" index="0"]
-max_health = 4
-
 [node name="AnimationTree" parent="Entities/Bat" index="8"]
 parameters/playback = SubResource( 53 )
 
@@ -690,8 +687,8 @@ position = Vector2( 280, 80 )
 [node name="Bat4" parent="Entities" instance=ExtResource( 9 )]
 position = Vector2( 64, 112 )
 
-[node name="Stats" parent="Entities/Bat4" index="0"]
-max_health = 6
+[node name="ShadowSprite" parent="Entities/Bat4" index="3"]
+visible = false
 
 [node name="AnimationPlayer" parent="Entities/Bat4" index="7"]
 anims/Dying = SubResource( 54 )
@@ -735,9 +732,6 @@ position = Vector2( 200, 168 )
 
 [node name="Bush" parent="Entities/Foliage" instance=ExtResource( 2 )]
 position = Vector2( 136, 120 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Tree13" parent="Entities/Foliage" instance=ExtResource( 3 )]
 position = Vector2( 272, 128 )
@@ -747,15 +741,9 @@ position = Vector2( 240, 24 )
 
 [node name="Bush2" parent="Entities/Foliage" instance=ExtResource( 2 )]
 position = Vector2( 240, 56 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Bush3" parent="Entities/Foliage" instance=ExtResource( 2 )]
 position = Vector2( 104, 64 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [editable path="Entities/Bat"]
 [editable path="Entities/Bat/Hitbox"]

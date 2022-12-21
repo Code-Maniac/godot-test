@@ -103,18 +103,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [ false ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("ShadowSprite:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
 
 [sub_resource type="AnimationNodeAnimation" id=8]
 animation = "Flying"
@@ -139,21 +127,21 @@ one_shot = true
 rotation = 1.5708
 shape = SubResource( 5 )
 
+[node name="ShadowSprite" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
 texture = ExtResource( 1 )
 offset = Vector2( 0, -12 )
 hframes = 5
 
-[node name="ShadowSprite" type="Sprite" parent="."]
-visible = false
-texture = ExtResource( 4 )
-
 [node name="Hitbox" parent="." instance=ExtResource( 5 )]
 collision_layer = 16
-collision_mask = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( 1, -15 )
 shape = SubResource( 12 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 2 )]

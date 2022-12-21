@@ -20,11 +20,14 @@ onready var animPlayer = $AnimationPlayer
 onready var animTree = $AnimationTree
 onready var animState = $AnimationTree.get("parameters/playback")
 onready var swordHitbox = $HitboxPivot/SwordHitbox
+onready var hurtbox = $Hurtbox
 
-onready var stats = $Stats
+var stats = PlayerStats
 
-func _read():
+func _ready():
+	stats.connect("health_depleted", self, "queue_free")
 	animTree.active = true
+
 
 func _process(delta):
 	match state:
@@ -123,5 +126,4 @@ func _set_blend_position(vec):
 
 func _on_Hurtbox_hit(damage):
 	stats.health -= damage
-	# should probably add some sort of invisibility frames
-	stats.
+	hurtbox.start_invincibility(0.5) # half a second of invincibility on taking damage

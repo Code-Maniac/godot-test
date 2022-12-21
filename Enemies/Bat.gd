@@ -58,12 +58,8 @@ func _ready():
 	if tree.has_group("LevelNavigation"):
 		nav = tree.get_nodes_in_group("LevelNavigation")[0]
 
-	print(nav)
-
 	if tree.has_group("Player"):
 		player = tree.get_nodes_in_group("Player")[0]
-
-	print(player)
 
 	_enter_idle_state()
 
@@ -88,9 +84,6 @@ func _enter_idle_state():
 func _enter_wander_state():
 	# if we are too far away from the tether then walk back to the tether
 	# otherwise random wander
-	print("Tether is: ")
-	print(global_position.distance_to(tether_pos))
-	print(MAX_DISTANCE_FROM_TETHER)
 	if global_position.distance_to(tether_pos) > MAX_DISTANCE_FROM_TETHER:
 		_enter_wander_state_tether()
 	else:
@@ -102,19 +95,12 @@ func _enter_wander_state_random():
 	var dist =  rand_range(MIN_WANDER_DIST, MAX_WANDER_DIST)
 	path = _get_path_to(global_position + (dir * dist));
 
-	print("WANDER RANDOM")
-	print(global_position + (dir * dist))
-
 	state = WANDER
 
 
 func _enter_wander_state_tether():
 	path = _get_path_to(tether_pos)
 	state = WANDER
-
-	print("WANDER TETHER")
-	print(tether_pos)
-	print(path)
 
 
 func _check_player_dist():
@@ -142,7 +128,6 @@ func _state_idle(_delta):
 	if _check_player_dist():
 		pass
 
-	print(idle_timer.time_left)
 	if idle_timer.time_left == 0:
 		_enter_wander_state()
 
@@ -200,7 +185,6 @@ func _on_Hurtbox_hit(damage):
 
 
 func _on_Stats_health_depleted():
-	print("No health")
 	# health goes to zero or less then death
 	var death_effect = death_effect_preload.instance()
 	get_parent().add_child(death_effect)
